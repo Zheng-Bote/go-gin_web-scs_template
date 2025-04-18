@@ -59,7 +59,7 @@
 ![HTML5](https://img.shields.io/badge/HTML-5+-E34F26?logo=html5)
 ![CSS3](https://img.shields.io/badge/CSS-663399?logo=css3)
 
-Basic pre-configured GO Web-Applicationserver GIN, CORS, CSRF, Fileserver for Templates and static assets.
+Basic pre-configured GO Web-Applicationserver with GIN, CORS, CSRF, Fileserver for Templates and static assets.
 
 ### Features
 
@@ -139,6 +139,13 @@ bla bla ... everything easy and green with No Code/Low code and without any cost
 bla bla ... with a little help from my friends
 
 ## folder structure
+
+- **config** package where functions for initialization and reading of configuration are placed
+- **controllers** package that contains the implementation of the controller layer.
+- **models** package that contains structs that will be used in all layers (representation of runner or result).
+- **repositories** package that contains the implementation of the repositories layer.
+- **server** package that contains the initialization of HTTP and database servers.
+- **service** package that contains the implementation of the service layer.
 
 <!-- readme-tree start -->
 
