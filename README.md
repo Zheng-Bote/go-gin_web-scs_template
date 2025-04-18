@@ -188,6 +188,7 @@ bla bla ... with a little help from my friends
 │   │   └── en.json
 │   ├── if.js
 │   ├── img
+│   │   ├── .gitkeep
 │   │   └── icons
 │   │       ├── dontpanic.svg
 │   │       ├── favicon.ico
@@ -226,9 +227,23 @@ bla bla ... with a little help from my friends
 │   ├── rz-navmenu.json
 │   ├── rz-online.js
 │   └── rz-theme.js
+├── config
+│   └── .gitkeep
+├── controllers
+│   └── .gitkeep
+├── dbscripts
+│   └── .gitkeep
 ├── go.mod
 ├── go.sum
 ├── main.go
+├── models
+│   └── .gitkeep
+├── repositories
+│   └── .gitkeep
+├── server
+│   └── .gitkeep
+├── service
+│   └── .gitkeep
 ├── setVersion.sh
 ├── templates
 │   ├── footer.htm
@@ -237,7 +252,7 @@ bla bla ... with a little help from my friends
 │   └── main_base.htm
 └── tree.bak
 
-13 directories, 75 files
+20 directories, 83 files
 ```
 <!-- readme-tree end -->
 
