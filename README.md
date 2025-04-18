@@ -141,7 +141,6 @@ bla bla ... with a little help from my friends
 ## folder structure
 
 <!-- readme-tree start -->
-
 ```
 .
 ├── .github
@@ -164,16 +163,76 @@ bla bla ... with a little help from my friends
 │       ├── repo-create_doctoc_md.yml
 │       └── repo-create_tree_readme.yml
 ├── LICENSE
-├── LICENSE_Apache-2
-├── LICENSE_GPL-2
-├── LICENSE_GPL-3
-├── LICENSE_MIT
 ├── README.md
-└── tree.bak
+├── assets
+│   ├── Counter.js
+│   ├── attributes.js
+│   ├── class.js
+│   ├── css
+│   │   ├── coding.css
+│   │   ├── index.css
+│   │   ├── link.css
+│   │   ├── text.css
+│   │   └── theme.css
+│   ├── css.js
+│   ├── custom-element.js
+│   ├── i18n
+│   │   ├── de.json
+│   │   └── en.json
+│   ├── if.js
+│   ├── img
+│   │   └── icons
+│   │       ├── dontpanic.svg
+│   │       ├── favicon.ico
+│   │       ├── favicon.svg
+│   │       ├── glasses-outline.svg
+│   │       ├── home-outline.svg
+│   │       ├── information-outline.svg
+│   │       ├── language-outline.svg
+│   │       ├── log-in-outline.svg
+│   │       ├── mail-open-outline.svg
+│   │       ├── moon-outline.svg
+│   │       ├── nok.svg
+│   │       ├── ok.svg
+│   │       ├── search-outline.svg
+│   │       ├── sunny-outline.svg
+│   │       └── sync-outline.svg
+│   ├── index-client.js
+│   ├── js
+│   │   └── i18n.js
+│   ├── legacy.js
+│   ├── lifecycle.js
+│   ├── props.js
+│   ├── rz-breadcrumbs.js
+│   ├── rz-button-top.js
+│   ├── rz-clock.js
+│   ├── rz-cookie-alert.js
+│   ├── rz-datetime.js
+│   ├── rz-fontsize.js
+│   ├── rz-footer.js
+│   ├── rz-header.js
+│   ├── rz-imprint.js
+│   ├── rz-language.js
+│   ├── rz-loginform.js
+│   ├── rz-modal.js
+│   ├── rz-navmenu.js
+│   ├── rz-navmenu.json
+│   ├── rz-online.js
+│   └── rz-theme.js
+├── go.mod
+├── go.sum
+├── main.go
+├── setVersion.sh
+├── templates
+│   ├── footer.htm
+│   ├── header.htm
+│   ├── lsignin_base.htm
+│   └── main_base.htm
+├── tree.bak
+└── web-server-template
 
-6 directories, 21 files
+13 directories, 75 files
 ```
-
 <!-- readme-tree end -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
