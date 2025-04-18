@@ -55,7 +55,7 @@
 
 # Description
 
-![GO](https://img.shields.io/badge/GO-41CD52?logo=go)
+![GO](https://img.shields.io/badge/GO-00ADD8?logo=go)
 ![HTML5](https://img.shields.io/badge/HTML-5+-E34F26?logo=html5)
 ![CSS3](https://img.shields.io/badge/CSS-663399?logo=css3)
 
