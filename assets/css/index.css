@@ -1,0 +1,137 @@
+:root {
+  color-scheme: light dark;
+
+  --font-family: "Inter", -apple-system, BlinkMacSystemFont, Roboto, Ubuntu,
+    "Segeo UI", "Helvetica Neue", Arial, sans-serif;
+
+  --font-size-bigger: 1.5rem;
+  --font-size: 1rem;
+  --font-size-small: 0.8rem;
+  --font-size-smaller: 0.5rem;
+
+  --font-size-big-dynamic: clamp(1.5rem, -2.3149rem + 8.8398vw, 2.5rem);
+  --font-size-bigger-dynamic: clamp(1rem, -2.3149rem + 8.8398vw, 2rem);
+  --font-size-normal-dynamic: clamp(1rem, 2vw, 1.5rem);
+  --font-size-small-dynamic: clamp(0.6rem, 0.7rem, 0.8rem);
+  --font-size-responsive: calc(2vw + 1em);
+
+  --font-color: light-dark(oklch(0% 0 0), oklch(95.84% 0.004 214.33));
+  --font-color-header: light-dark(oklch(0% 0 0), oklch(95.84% 0.004 214.33));
+  --font-color-footer: light-dark(oklch(0% 0 0), oklch(95.84% 0.004 214.33));
+
+  --background-color: light-dark(#cae5ff, #6f8ab7);
+  --background-color-header: light-dark(#89bbfe, #6f8ab7);
+  --border-color-header: light-dark(#cae5ff, #89bbfe);
+  --background-color-footer: light-dark(#89bbfe, #6f8ab7);
+  --border-color-footer: light-dark(#cae5ff, #89bbfe);
+
+  --info-color: oklch(0.86 0.0489 219.65); /* light-blue */
+  --red-color: oklch(62.8% 0.25768330773615683 29.2338851923426);
+  --yellow-color: oklch(96.8% 0.21100590772552355 109.76923207652125);
+  --green-color: oklch(0.81 0.156 144.09);
+
+  --base-margin: 5px;
+  --base-padding: 5px;
+  --transparency: rgb(0 0 0 / 0);
+
+  --border-color: light-dark(#6f8ab7, #89bbfe);
+  --border-style: solid;
+  --border-width: 1px;
+  --border-radius: 5px;
+
+  --primary-color: lightblue;
+  --secondary-color: #89bbfe;
+
+  --opacity-05: 0.5;
+  --opacity-09: 0.9;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-size: 100vw 100vh;
+  height: 100%;
+
+  background-color: var(--background-color);
+  color: var(--font-color);
+  /*padding: calc(var(--base-padding) * 4); */
+}
+
+.brand {
+  opacity: 0.9;
+  img {
+    vertical-align: middle;
+    width: 25px;
+    height: auto;
+  }
+}
+
+.rz-datetime {
+  color: lightgreen;
+  background-color: black;
+  padding: 2px;
+}
+
+main {
+  display: grid;
+  width: 100%;
+  grid-template-areas: "aside" "content" "aside_right";
+  grid-template-rows: auto;
+  padding: 10px;
+}
+
+aside {
+  grid-area: aside;
+  text-align: center;
+}
+
+.aside_nav {
+  /*display: block;*/
+  text-align: left;
+}
+
+.content {
+  grid-area: content;
+}
+
+.aside_right {
+  grid-area: aside_right;
+  text-align: center;
+}
+
+.the-end {
+  margin: 50px;
+  padding: 50px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 5px 0 5px 0;
+}
+
+@media screen and (min-width: 1024px) {
+  main {
+    display: grid;
+    grid: "aside content aside_right" 100% / 120px 1fr 300px;
+    grid-template-columns: 150px 1fr 300px;
+    grid-template-rows: 100%;
+  }
+}

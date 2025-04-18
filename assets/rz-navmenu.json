@@ -1,0 +1,21 @@
+[
+  { "index": 0, "id": "main", "name": "Main", "link": "/" },
+  {
+    "index": 1,
+    "id": "home",
+    "name": "Home",
+    "link": "/v1/home"
+  },
+  {
+    "index": 2,
+    "id": "lsignin",
+    "name": "local sig-in",
+    "link": "/v1/lsignin"
+  },
+  {
+    "index": 3,
+    "id": "users",
+    "name": "Users",
+    "link": "/v1/users"
+  }
+]

@@ -1,9 +1,28 @@
 {{template "header" .}}
-<h1>base_s.html</h1>
-<p>Title {{ .title }}</p>
-
+<script type="module" src="/assets/rz-loginform.js"></script>
 <main>
-  <article>das ist local sign-in</article>
+  <aside>
+    <p><br /></p>
+    <span class="aside_nav">
+      <h5>Menu</h5>
+      <rz-navmenu
+        current_id="lsignin"
+        json_url="/assets/rz-navmenu.json"
+      ></rz-navmenu>
+    </span>
+  </aside>
+  <div class="content">
+    <h1 data-i18n-key="Web-Components">Web-Components</h1>
+    <p>{{ .title }}</p>
+    <rz-loginform login_url="http://localhost:8080/v1/users"></rz-loginform>
+  </div>
+  <div class="aside_right">
+    <p><br /></p>
+    <h5>&nbsp;</h5>
+    <span class="txt-right">
+      <p class="brief"><rz-datetime></rz-datetime></p>
+    </span>
+  </div>
 </main>
 
 {{template "footer" .}}

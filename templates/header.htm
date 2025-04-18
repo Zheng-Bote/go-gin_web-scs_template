@@ -1,11 +1,10 @@
-{{define "header"}}
-<!DOCTYPE html>
+{{define "header"}}<!DOCTYPE html>
 <html lang="en" data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>rz-wc-lib</title>
+    <title>{{ .title }}</title>
 
     <meta name="description" content="we-component library, based on Svelte" />
     <meta name="version" content="v1.0.0" />
@@ -21,21 +20,38 @@
 
     <!-- <link rel="preconnect" href="https://www.hase-zheng.net" /> -->
 
-    <link rel="alternate icon" href="img/icons/favicon.ico" />
+    <link rel="alternate icon" href="/assets/img/icons/favicon.ico" />
     <link
       rel="shortcut icon"
-      href="img/icons/favicon.ico"
+      href="/assets/img/icons/favicon.ico"
       type="image/x-icon"
     />
-    <link rel="icon" type="image/svg+xml" href="img/icons/favicon.svg" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/assets/img/icons/favicon.svg"
+    />
 
-    <link href="/dist/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/link.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/text.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/theme.css" rel="stylesheet" type="text/css" />
 
-    <script type="module" src="/dist/assets/rz-navmenu.js"></script>
+    <script type="module" src="/assets/rz-header.js"></script>
+    <script type="module" src="/assets/rz-breadcrumbs.js"></script>
+    <script type="module" src="/assets/rz-navmenu.js"></script>
+    <script type="module" src="/assets/rz-datetime.js"></script>
 
-    <script src="/dist/js/i18n.js"></script>
+    <script src="/assets/js/i18n.js"></script>
   </head>
   <body>
+    <rz-header brand_title="Go Webserver Template"></rz-header>
+    <rz-breadcrumbs></rz-breadcrumbs>
+
+    <span id="top"></span>
+    <div id="rz_button_top">
+      <rz-button-top></rz-button-top>
+    </div>
     {{end}}
   </body>
 </html>

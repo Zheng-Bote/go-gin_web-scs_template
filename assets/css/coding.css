@@ -1,0 +1,35 @@
+@scope (.coding) {
+  @property --universal-padding {
+    syntax: "<px>";
+    inherits: false;
+    initial-value: 5px;
+  }
+
+  code,
+  kbd,
+  pre,
+  samp {
+    font-family: Menlo, Consolas, monospace;
+    margin: 0 20px 0 20px;
+  }
+  code > pre {
+    overflow: auto;
+    background: black;
+    color: yellowgreen;
+    padding: var(--universal-padding);
+    width: fit-content;
+    max-width: 100%:
+  }
+}
+
+table {
+  width: fit-content;
+  padding: 2px;
+}
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px;
+}

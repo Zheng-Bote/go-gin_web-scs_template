@@ -9,6 +9,8 @@ import (
 	"github.com/gin-contrib/cors"
 	"github.com/gin-contrib/gzip"
 	"github.com/gin-contrib/multitemplate"
+	"github.com/gin-contrib/sessions"
+	"github.com/gin-contrib/sessions/cookie"
 	"github.com/gin-gonic/gin"
 )
 
@@ -32,16 +34,16 @@ type userdata struct {
 	EMAIL     string `json:"email"`
 }
 type user struct {
-	ID       int32  `json:"id"`
-	USERNAME string `json:"username"`
-	PASSWORD string `json:"password"`
+	//ID       int32  `json:"id"`
+	USERNAME string `json:"user"`
+	PASSWORD string `json:"pwd"`
 	TOKEN    string `json:"token"`
-	EXPIRES  string `json:"expires"`
+	//EXPIRES  string `json:"expires"`
 }
 
 /* ##### */
 var users = []user{
-	{USERNAME: "Jeru", PASSWORD: "Gerry Mulligan", TOKEN: "", EXPIRES: ""},
+	{USERNAME: "Jeru", PASSWORD: "Gerry Mulligan", TOKEN: ""}, //, EXPIRES: ""
 }
 
 /* ##### */
@@ -58,7 +60,24 @@ func createMyRender() multitemplate.Renderer {
 	r := multitemplate.NewRenderer()
 	//r.AddFromFiles("index", "templates/base_i.html", "templates/index_i.html")
 	r.AddFromFiles("lsignin", "templates/lsignin_base.htm", "templates/header.htm", "templates/footer.htm")
+	r.AddFromFiles("main", "templates/main_base.htm", "templates/header.htm", "templates/footer.htm")
 	return r
+}
+
+func CookieTool() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		// Get cookie
+		if cookie, err := c.Cookie("csrf_cookie"); err == nil {
+			if cookie == "ok" {
+				c.Next()
+				return
+			}
+		}
+
+		// Cookie verification failed
+		c.JSON(http.StatusForbidden, gin.H{"error": "Forbidden with no cookie"})
+		c.Abort()
+	}
 }
 
 /* ##### */
@@ -90,10 +109,20 @@ func postNewUser(c *gin.Context) {
 
 // create simple json
 func loginEndpoint_v2_1(c *gin.Context) {
+	// c.JSON(200, gin.H{"count": count})
 	data := map[string]interface{}{
 		"function": "v1_1",
 	}
 	c.IndentedJSON(http.StatusOK, data)
+}
+
+func getCookie(c *gin.Context) {
+	session := sessions.Default(c)
+	c.JSON(200, gin.H{"hello": session.Get("hello")})
+}
+
+func goHome(c *gin.Context) {
+	c.JSON(200, gin.H{"data": "Your home page"})
 }
 
 func main() {
@@ -107,20 +136,49 @@ func main() {
 	config.MaxAge = 12 * time.Hour
 
 	router := gin.Default()
-	router.Use(gzip.Gzip(gzip.DefaultCompression))
+	router.Static("/assets", "./assets")
 	router.Use(cors.New(config))
+	router.Use(gzip.Gzip(gzip.DefaultCompression, gzip.WithExcludedExtensions([]string{".png", ".webp"})))
 	router.HTMLRender = createMyRender()
+	store := cookie.NewStore([]byte("secret"))
+	router.Use(sessions.Sessions("mysession", store))
 
 	/* ##### */
 	router.GET("/version", getVersion)
+	router.GET("/", func(c *gin.Context) {
+		c.HTML(200, "main", gin.H{
+			"title": "Home",
+		})
+	})
 
 	// Simple group: v1
 	{
 		v1 := router.Group("/v1")
+		v1.GET("/home", CookieTool(), goHome)
+		v1.GET("/cookie", getCookie)
 		v1.GET("/users", getUsers)
 		v1.GET("/users/:user", getUserByUserName)
 		v1.POST("/users", postNewUser)
+		v1.GET("/", func(c *gin.Context) {
+			c.HTML(200, "main", gin.H{
+				"title": "Home",
+			})
+		})
+		v1.GET("/v1", func(c *gin.Context) {
+			c.HTML(200, "main", gin.H{
+				"title": "Home",
+			})
+		})
 		v1.GET("/lsignin", func(c *gin.Context) {
+			// Set cookie {"label": "ok" }, maxAge 30 seconds.
+			c.SetCookie("csrf_cookie", "ok", 30, "/", "localhost", false, true)
+
+			session := sessions.Default(c)
+			if session.Get("hello") != "world" {
+				session.Set("hello", "world")
+				session.Save()
+			}
+
 			c.HTML(200, "lsignin", gin.H{
 				"title": "local sign-in",
 			})
