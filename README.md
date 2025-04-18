@@ -14,15 +14,14 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
 **Table of Contents**
 
 - [Description](#description)
-  - [Features](#features)
+    - [Features](#features)
 - [Status](#status)
-  - [Documentation](#documentation)
-    - [README](#readme)
-    - [other Markdown files](#other-markdown-files)
+    - [Documentation](#documentation)
+      - [README](#readme)
+      - [other Markdown files](#other-markdown-files)
 - [Installation](#installation)
   - [Dependencies](#dependencies)
   - [folder structure](#folder-structure)
@@ -148,7 +147,6 @@ bla bla ... with a little help from my friends
 - **service** package that contains the implementation of the service layer.
 
 <!-- readme-tree start -->
-
 ```
 .
 ├── .github
@@ -170,6 +168,7 @@ bla bla ... with a little help from my friends
 │       ├── repo-create_doctoc.yml_
 │       ├── repo-create_doctoc_md.yml
 │       └── repo-create_tree_readme.yml
+├── .gitignore
 ├── LICENSE
 ├── README.md
 ├── assets
@@ -236,12 +235,10 @@ bla bla ... with a little help from my friends
 │   ├── header.htm
 │   ├── lsignin_base.htm
 │   └── main_base.htm
-├── tree.bak
-└── web-server-template
+└── tree.bak
 
 13 directories, 75 files
 ```
-
 <!-- readme-tree end -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
