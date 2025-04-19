@@ -150,7 +150,6 @@ bla bla ... with a little help from my friends
 - **service** package that contains the implementation of the service layer.
 
 <!-- readme-tree start -->
-
 ```
 .
 ├── .github
@@ -241,13 +240,15 @@ bla bla ... with a little help from my friends
 ├── go.sum
 ├── main.go
 ├── models
-│   └── .gitkeep
+│   ├── .gitkeep
+│   └── models.go
 ├── repositories
 │   └── .gitkeep
 ├── server
 │   └── .gitkeep
 ├── service
-│   └── .gitkeep
+│   ├── .gitkeep
+│   └── service.go
 ├── setVersion.sh
 ├── templates
 │   ├── footer.htm
@@ -256,9 +257,8 @@ bla bla ... with a little help from my friends
 │   └── main_base.htm
 └── tree.bak
 
-20 directories, 83 files
+20 directories, 85 files
 ```
-
 <!-- readme-tree end -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
