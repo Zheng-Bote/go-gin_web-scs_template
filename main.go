@@ -1,6 +1,7 @@
 package main
 
 import (
+	"Zheng-Bote/web-server-template/service"
 	"fmt"
 	"log"
 	"net/http"
@@ -15,9 +16,9 @@ import (
 )
 
 /* ##### */
-var Version string
-var Date string
-var Go_Version string
+var Version string = "v0.0.1"
+var Date string = "2025-04-18"
+var Go_Version string = "go1.24.2"
 
 type version struct {
 	VERSION   string
@@ -34,16 +35,19 @@ type userdata struct {
 	EMAIL     string `json:"email"`
 }
 type user struct {
-	//ID       int32  `json:"id"`
+	ID       int32  `json:"id,omitempty"`
 	USERNAME string `json:"user"`
 	PASSWORD string `json:"pwd"`
-	TOKEN    string `json:"token"`
-	//EXPIRES  string `json:"expires"`
+	TOKEN    string `json:"token,omitempty"`
+	EXPIRES  string `json:"expires,omitempty"`
 }
 
 /* ##### */
+var userdatas = []userdata{
+	{ID: 0, FIRSTNAME: "Bugs", LASTNAME: "Bunny", EMAIL: "no.spam@hotmail.com"},
+}
 var users = []user{
-	{USERNAME: "Jeru", PASSWORD: "Gerry Mulligan", TOKEN: ""}, //, EXPIRES: ""
+	{ID: 0, USERNAME: "BBP", PASSWORD: "Top$ecre!", TOKEN: "", EXPIRES: ""},
 }
 
 /* ##### */
@@ -83,14 +87,14 @@ func CookieTool() gin.HandlerFunc {
 /* ##### */
 
 func getUsers(c *gin.Context) {
-	c.IndentedJSON(http.StatusOK, users)
+	c.IndentedJSON(http.StatusOK, userdatas)
 }
 func getUserByUserName(c *gin.Context) {
 	user := c.Param("user")
 
-	for _, a := range users {
-		fmt.Printf("users: %v\n", a.USERNAME)
-		if a.USERNAME == user {
+	for _, a := range userdatas {
+		fmt.Printf("users: %v\n", a.LASTNAME)
+		if a.LASTNAME == user {
 			c.IndentedJSON(http.StatusOK, a)
 			return
 		}
@@ -111,7 +115,7 @@ func postNewUser(c *gin.Context) {
 func loginEndpoint_v2_1(c *gin.Context) {
 	// c.JSON(200, gin.H{"count": count})
 	data := map[string]interface{}{
-		"function": "v1_1",
+		"function": "v2_1",
 	}
 	c.IndentedJSON(http.StatusOK, data)
 }
@@ -126,6 +130,9 @@ func goHome(c *gin.Context) {
 }
 
 func main() {
+	appConfig := service.GetEnv()
+	fmt.Printf("appConfig:: %+v\n", appConfig)
+
 	config := cors.DefaultConfig()
 	// AllowOrigins:     []string{"https://foo.com"},
 	config.AllowAllOrigins = true
@@ -188,12 +195,11 @@ func main() {
 	// Simple group: v2
 	{
 		v2 := router.Group("/v2")
-		v2.GET("/loginep", loginEndpoint_v2_1)
-		v2.GET("/users", getUsers)
-		v2.GET("/users/:user", getUserByUserName)
+		v2.GET("/version", getVersion)
+		v2.GET("/ep2", loginEndpoint_v2_1)
 	}
 
-	if err := router.Run(":8080"); err != nil {
+	if err := router.Run(appConfig.App.Port); err != nil {
 		log.Fatal(err)
 	}
 }

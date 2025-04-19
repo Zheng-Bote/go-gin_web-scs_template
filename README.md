@@ -14,14 +14,15 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**
 
 - [Description](#description)
-    - [Features](#features)
+  - [Features](#features)
 - [Status](#status)
-    - [Documentation](#documentation)
-      - [README](#readme)
-      - [other Markdown files](#other-markdown-files)
+  - [Documentation](#documentation)
+    - [README](#readme)
+    - [other Markdown files](#other-markdown-files)
 - [Installation](#installation)
   - [Dependencies](#dependencies)
   - [folder structure](#folder-structure)
@@ -137,6 +138,8 @@ bla bla ... everything easy and green with No Code/Low code and without any cost
 
 bla bla ... with a little help from my friends
 
+- \[x] Viper
+
 ## folder structure
 
 - **config** package where functions for initialization and reading of configuration are placed
@@ -147,6 +150,7 @@ bla bla ... with a little help from my friends
 - **service** package that contains the implementation of the service layer.
 
 <!-- readme-tree start -->
+
 ```
 .
 ├── .github
@@ -254,6 +258,7 @@ bla bla ... with a little help from my friends
 
 20 directories, 83 files
 ```
+
 <!-- readme-tree end -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>

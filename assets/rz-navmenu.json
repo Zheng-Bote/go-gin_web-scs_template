@@ -8,12 +8,18 @@
   },
   {
     "index": 2,
+    "id": "version",
+    "name": "Version",
+    "link": "/version"
+  },
+  {
+    "index": 3,
     "id": "lsignin",
     "name": "local sig-in",
     "link": "/v1/lsignin"
   },
   {
-    "index": 3,
+    "index": 4,
     "id": "users",
     "name": "Users",
     "link": "/v1/users"
